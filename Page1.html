@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--
+ *  FILE                : Page1.html
+ *  PROJECT             : Web Design and Development PROG2001 - Final Exam Practical
+ *	PROGRAMMER			: Andrew Gordon
+ *	FIRST VERSION		: Dec. 13 2020
+ *  DESCRIPTION         : The SET Pizza Shop web app allows a user to enter their details, customize their pizza,
+ *                        and confirm their order
+ *                        
+ *                        Allows the customer to enter their first and last name. The input is validated in a
+ *                        javascript function.
+ -->
+
+<head>
+    <title>SET Pizza Shop - Customer Name</title>
+    <link rel="stylesheet" href="Content/Styles.css" />
+    <script type="text/javascript">
+
+        /*  -- Method Header Comment
+        Name	:	validateName
+        Purpose :	Validates that the name input is 2 individual strings containing only alphabetical characters
+        Inputs	:	None
+        Outputs	:	None
+        Returns	:	bool    true        input was valid
+                            false       input was invalid
+        */
+        function validateName() {
+            var nameStr = document.getElementById("customerName").value = document.getElementById("customerName").value.trim();
+            var nameRegExp = new RegExp(/^([a-z]+) [a-z]+$/i);
+
+            if (nameStr != "") {
+                // input not empty
+                if (nameRegExp.test(nameStr)) {
+                    // save the first name into an input so it can be passed into the next page
+                    var firstName = nameRegExp.exec(nameStr)[1];
+                    document.getElementById("firstName").value = firstName;
+
+                    // input is correct format, return true
+                    return true;
+                }
+                else {
+                    // input is not 2 alphabetical strings
+                    document.getElementById("customerName").value = "";
+                    document.getElementById("inputError").innerHTML = "Invalid input, please provide your first and last name";
+                    return false;
+                }
+            }
+            else {
+                // input was empty
+                document.getElementById("customerName").value = "";
+                document.getElementById("customerName").focus();
+                document.getElementById("inputError").innerHTML = "Input is empty, please provide your first and last name";
+                return false;
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h1>
+        SET Pizza Shop
+    </h1>
+    <form id="getNameForm" name="getNameForm" action="Page2.php" method="GET" onSubmit="return validateName();">
+        <table>
+            <tr>
+                <td>
+                    <span id="userPrompt" class="prompt" runat="server">Welcome to the SET Pizza Shop!<br />Please enter
+                        your first and last name to begin ordering</span>
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" id="customerName" name="customerName" autofocus="autofocus"
+                        placeholder="John Smith" />
+                    <input type="hidden" id="firstName" name="firstName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" class="button" value="Submit" />
+                </td>
+            </tr>
+            <tr>
+                <td>&nbsp;</td>
+            </tr>
+            <tr>
+                <td>
+                    <div id="inputError" class="Error"></div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

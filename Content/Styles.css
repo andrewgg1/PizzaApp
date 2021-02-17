@@ -1,0 +1,118 @@
+﻿/*
+ *  FILE                : Styles.css
+ *  PROJECT             : Web Design and Development PROG2001 - Final Exam Practical
+ *	PROGRAMMER			: Andrew Gordon
+ *	FIRST VERSION		: Dec. 13 2020
+ *  DESCRIPTION         : The SET Pizza Shop web app allows a user to enter their details, customize their pizza,
+ *                        and confirm their order
+ *                        
+ *                        Contains the styling for all of the differnt elements int he SET Pizza Shop web app.
+*/
+
+* {
+    margin: 0;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url(PageBG.jpg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+}
+
+span.prompt {
+    font-size: 25px;
+    font-weight: bold;
+}
+
+table {
+    width: 600px;
+    height: 400px;
+    background-color: rgba(223, 134, 29, 0.80);
+    text-align: center;
+    vertical-align: middle;
+    color: white;
+    position: fixed;
+    margin-left: -300px; /* half of width */
+    margin-top: -150px;
+    top: 50%;
+    left: 50%;
+    box-shadow: 10px 10px 4px rgba(0, 0, 0, 0.90);
+    border-radius: 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3em;
+    font-weight: bold;
+    background-color: rgba(223, 134, 29, 0.80);
+    color: white;
+}
+
+.button {
+    background-color: #ca3429b6;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 25px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+
+#orderHeader{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+#totalPriceLine{
+     font-size: 1.5em;
+     font-weight: bold;
+}
+
+.orderLine{
+    visibility: visible;
+    font-size: 24px;
+}
+
+.bottomLine{
+   padding-bottom: 1em;
+}
+
+.Error {
+    color: red;
+    background-color: rgba(255, 255, 255, 0.80);
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.checkLabel{
+    font-size: 24px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.checkbox{
+    height: 30px;
+    width: 30px;    
+}
+
+.totalPrice{
+    font-size: 30px;
+}
+
+.statusMessage{
+    font-size: 30px;
+}
+
+#customerName{
+    font-size: 20px;
+}
